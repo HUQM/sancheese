@@ -18,6 +18,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Tablas -->
+    <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css')}}">
+    @yield('adminlte_css')
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -156,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="/" class="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">SanChese</span>
             </a>
 
             <!-- Sidebar -->
@@ -202,28 +206,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-barcode"></i>
                                 <p>
-                                    pagina 1
-                                    <span class="right badge badge-danger">New</span>
+                                    Producto
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('raw_material') }}" class="nav-link">
+                                {{-- <i class="nav-icon fas fa-th"></i> --}}
+                                <img class="nav-icon" src="{{ asset("img/raw-material.png") }}">
+                                <p>
+                                    Materia prima
+
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-box-open"></i>
                                 <p>
-                                    pagina 2
-                                    <span class="right badge badge-danger">New</span>
+                                    Almacén
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-dollar-sign"></i>
                                 <p>
-                                    pagina 3
-                                    <span class="right badge badge-danger">New</span>
+                                    Ventas
                                 </p>
                             </a>
                         </li>

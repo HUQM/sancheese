@@ -14,7 +14,7 @@ class RawMaterialController extends Controller
      */
     public function index()
     {
-        //
+        return view('raw_material.index');
     }
 
     /**
