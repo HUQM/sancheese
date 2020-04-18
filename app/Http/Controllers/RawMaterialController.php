@@ -24,7 +24,7 @@ class RawMaterialController extends Controller
      */
     public function create()
     {
-        //
+        return view('raw_material.create');
     }
 
     /**
