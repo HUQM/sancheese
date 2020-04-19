@@ -19,8 +19,7 @@
                     <tr>
                         <th>Producto</th>
                         <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Caducidad</th>
+                        <th>Peso</th>
                         <th width="120px">Acciones</th>
                     </tr>
                 </thead>
