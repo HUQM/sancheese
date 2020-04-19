@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                        </ul>
+            </ul>
             <!-- SEARCH FORM -->
             {{-- <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('product') }}" class="nav-link">
                                 <i class="nav-icon fas fa-barcode"></i>
                                 <p>
                                     Producto

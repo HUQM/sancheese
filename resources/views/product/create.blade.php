@@ -1,30 +1,17 @@
-@extends('/layout')
-
-@section('adminlte_css')
-<meta name="csrf-token"=content="{{ csrf_token() }}">
-@stop
+@extends('layout')
 
 @section('header-section')
-
-    <h2>Lista de materiales</h2>
-
+    <h1>Agregar Producto</h1>
 @endsection
 
 @section('content')
-
-<div class="row">
-    <div class="col col-md-12">
-    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('raw_material/Index') }}"><b>Lista de productos</b></a><br><br><br>
-    </div>
-    <div class="col-md-12">
-        <div class="box-body">
-            <h1>Crear productos</h1>
+    <form>
+        <div class="form-group col-md-12 col-lg-12">
+            <a class="btn btn-success btn-md" style="float:right;" href="{{ url('product/index') }}"><b>Volver</b></a><br><br><br>
         </div>
-    </div>
-</div>
-
+        @include('product.partials.form')
+        <div class="form-group col-md-10 col-lg-12">
+            <button type="submit" class="btn btn-success" style="float:right; margin-top:15px;">Guardar</button>
+        </div>
+    </form>
 @endsection
-
-@section('adminlte_js')
-
-@stop
