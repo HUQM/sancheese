@@ -1,5 +1,7 @@
 @extends('layout')
 
+@include('adminlte_css')
+
 @section('header-section')
     <h1>Agregar Producto</h1>
 @endsection
