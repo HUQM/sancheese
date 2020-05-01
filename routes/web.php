@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::resource('raw_material','RawMaterialController');
 
 Route::resource('product','ProductController');
+
+Route::resource('store','StoreController');
+
+
