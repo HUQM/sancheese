@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use DB;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index'); 
+        $dataProdcuct['products']=Product::paginate(5);
+
+        return view('product.index',$dataProdcuct); 
     }
 
     /**
@@ -35,7 +39,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        // $datosProducto = request()->except('_token');
+        // Product::insert($datosProducto);
+        // return response()->json($datosProducto);
+
+         $productdata= New Product;
+         $productdata->name= $request->product_name;
+         $productdata->weight= $request->product_weight;
+         $productdata->price= $request->product_price;
+         $productdata->save();
+
+          $msg = [
+            'title' => 'Creado!',
+            'text' => 'Producto creado exitosamente.',
+            'icon' => 'success'
+            ];
+  
+          return redirect('product')->with('message', $msg);
     }
 
     /**
@@ -78,8 +100,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        // Product::destroy($id);
+
+        // return redirect('products');
     }
 }
