@@ -2,7 +2,7 @@
 
 @section('header-section')
 
-    <h2>Almacén</h2>
+    <h2>Almacen</h2>
 
 @endsection
 
@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col col-md-12">
-    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('product/create') }}"><b>Agregar Nuevo</b></a><br><br><br>
+    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('product/create') }}"><b>Agregar</b></a><br><br><br>
     </div>
     <div class="col-md-12">
         <div class="box-body">
