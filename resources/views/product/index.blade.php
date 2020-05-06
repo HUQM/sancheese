@@ -21,7 +21,7 @@
                         <th>Producto</th>
                         <th>Peso</th>
                         <th>Precio</th>
-                        <th width="200px">Acciones</th>
+                        <th width="120px">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,9 +32,9 @@
                         <td>{{ $product->price }}</td>
                         <td>
                             <div class="row">
-                                <div class="col col-6">
-                                    <button class="btn btn-warning">
-                                        <a href="{{ url('product/') }}" style="text-decoration:none;"><svg
+                                <div class="col col-6 text-center">
+                                    {{-- <button class="btn btn-warning"> --}}
+                                        <a class="btn btn-warning" href="{{ url('/product/'.$product->id.'/edit') }}" style="text-decoration:none;"><svg
                                             class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -43,9 +43,9 @@
                                                 d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
                                                 clip-rule="evenodd" />
                                         </svg></a>
-                                    </button>
+                                    {{-- </button> --}}
                                 </div>
-                                <div class="col col-6">
+                                <div class="col col-6 text-center">
                                     <form method="post" action="{{ url('/product/',$product->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}

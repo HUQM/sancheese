@@ -16,9 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $dataProdcuct['products']=Product::paginate(5);
+        $dataProdcuct['products'] = Product::paginate(5);
 
-        return view('product.index',$dataProdcuct); 
+        return view('product.index', $dataProdcuct);
     }
 
     /**
@@ -39,25 +39,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
 
-        // $datosProducto = request()->except('_token');
-        // Product::insert($datosProducto);
-        // return response()->json($datosProducto);
+        $producto = new Product;
+        $producto->name = $request->product_name;
+        $producto->weight = $request->product_weight;
+        $producto->price = $request->product_price;
+        $producto->save();
 
-         $productdata= New Product;
-         $productdata->name= $request->product_name;
-         $productdata->weight= $request->product_weight;
-         $productdata->price= $request->product_price;
-         $productdata->save();
+        // $msg = [
+        //     'title' => 'Creado!',
+        //     'text' => 'Producto creado exitosamente.',
+        //     'icon' => 'success'
+        // ];
 
-          $msg = [
-            'title' => 'Creado!',
-            'text' => 'Producto creado exitosamente.',
-            'icon' => 'success'
-            ];
-  
-          return redirect('product')->with('message', $msg);
+        return redirect('product')->with('success','Producto agregado');
     }
 
     /**
@@ -77,9 +72,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $producto = Product::findOrFail($id);
+
+        return  view('product.edit', compact('producto'));
     }
 
     /**
@@ -89,9 +86,16 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $producto = Product::findOrFail($id);
+
+        $producto->name = $request->product_name;
+        $producto->weight = $request->product_weight;
+        $producto->price = $request->product_price;
+        $producto->save();
+
+        return  view('product.index', compact('producto'));
     }
 
     /**
