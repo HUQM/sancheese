@@ -7,7 +7,7 @@
 @section('content')
 
 @if (Session::has('message')){{
-    Session::get('message');
+    Session::get('message')
 }}
 @endif
 
