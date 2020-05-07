@@ -14,7 +14,8 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('store.index');
+        $dataStore['storeProducts'] = Store::paginate(5);
+        return view('store.index', $dataStore);
     }
 
     /**
@@ -24,7 +25,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('store.create');  
+
     }
 
     /**
@@ -35,7 +37,14 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $storeP = new Store;
+        $storeP->product_id = $request->product_store;
+        $storeP->amount = $request->store_amount;
+        $storeP->elaboration = $request->store_create;
+        $storeP->expiration = $request->store_expiration;
+        $storeP->save();
+        return redirect('store')->with('success','Producto registrado');
     }
 
     /**
@@ -55,9 +64,10 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit($id)
     {
-        //
+        $storeProduct=Store::findOrFail($id);
+        return view('store.edit', compact('storeProduct'));
     }
 
     /**
@@ -67,9 +77,16 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, $id)
     {
-        //
+        $storeProduct=Store::findOrFail($id);
+        $storeProduct->product_id = $request->product_store;
+        $storeProduct->amount = $request->store_amount;
+        $storeProduct->elaboration = $request->store_create;
+        $storeProduct->expiration = $request->store_expiration;
+        $storeProduct->save();
+        return view('store.index', compact('storeP'))->with('success','Registro editado');
+
     }
 
     /**
@@ -78,8 +95,9 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy($id)
     {
-        //
+        Store::destroy($id);
+        return redirect('store')->with('delete','Producto eliminado');    
     }
 }

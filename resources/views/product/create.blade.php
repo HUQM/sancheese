@@ -6,7 +6,7 @@
 @endif
 
 @section('header-section')
-<h1>Agregar Producto</h1>
+<h1>Crear Producto</h1>
 @endsection
 
 @section('content')
