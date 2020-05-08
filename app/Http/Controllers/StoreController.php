@@ -92,7 +92,7 @@ class StoreController extends Controller
         // return view('store.index', compact('storeP'))->with('success','Registro editado');
         return redirect('store')->with('success','Producto editado');
 
-        //Como que no se puede
+        //Listo Mademoiselle
         
     }
 
