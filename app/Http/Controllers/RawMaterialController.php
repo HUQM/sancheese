@@ -92,6 +92,6 @@ class RawMaterialController extends Controller
     {
             Raw_material::destroy($id);
 
-            return redirect('raw_material');
+            return redirect('raw_material')->with('delete','Ingrediente eliminado');
     }
 }
