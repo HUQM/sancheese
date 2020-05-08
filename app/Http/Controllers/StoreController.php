@@ -66,8 +66,11 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
+        //return view(view: 'store.edit', ['storeProduct' => Store::findOrFail($id)])
+        
         $storeProduct=Store::findOrFail($id);
         return view('store.edit', compact('storeProduct'));
+        
     }
 
     /**
@@ -85,8 +88,12 @@ class StoreController extends Controller
         $storeProduct->elaboration = $request->store_create;
         $storeProduct->expiration = $request->store_expiration;
         $storeProduct->save();
-        return view('store.index', compact('storeP'))->with('success','Registro editado');
+        
+        // return view('store.index', compact('storeP'))->with('success','Registro editado');
+        return redirect()->action('StoreController@index');
 
+        //Como que no se puede
+        
     }
 
     /**
