@@ -91,6 +91,8 @@ class StoreController extends Controller
         
         // return view('store.index', compact('storeP'))->with('success','Registro editado');
         return redirect()->action('StoreController@index');
+
+        //Como que no se puede
         
     }
 
