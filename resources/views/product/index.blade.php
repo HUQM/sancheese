@@ -46,7 +46,7 @@
                                     {{-- </button> --}}
                                 </div>
                                 <div class="col col-6 text-center">
-                                    <form method="post" action="{{ url('/product/',$product->id) }}">
+                                    <form method="post" action="{{ url('/product/'.$product->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger"
