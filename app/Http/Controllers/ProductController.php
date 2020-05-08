@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $dataProdcuct['products'] = Product::paginate(5);
+        $dataProdcuct['products'] = Product::paginate(1);
 
         return view('product.index', $dataProdcuct);
     }
@@ -89,13 +89,14 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $producto = Product::findOrFail($id);
-
         $producto->name = $request->product_name;
         $producto->weight = $request->product_weight;
         $producto->price = $request->product_price;
-        $producto->save();
+        $producto->update();
 
-        return  view('product.index', compact('producto'));
+        return redirect('product')->with('success','Producto editado');
+        // return  view('product.index', compact('producto'));
+        //Listo Mademoiselle
     }
 
     /**

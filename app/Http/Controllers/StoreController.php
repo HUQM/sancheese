@@ -87,10 +87,10 @@ class StoreController extends Controller
         $storeProduct->amount = $request->store_amount;
         $storeProduct->elaboration = $request->store_create;
         $storeProduct->expiration = $request->store_expiration;
-        $storeProduct->save();
+        $storeProduct->update();
         
         // return view('store.index', compact('storeP'))->with('success','Registro editado');
-        return redirect()->action('StoreController@index');
+        return redirect('store')->with('success','Producto editado');
 
         //Como que no se puede
         
