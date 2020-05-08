@@ -1,18 +1,40 @@
 @extends('layout')
 
 @section('header-section')
-<h1>Agregar ingrediente</h1>
+<h1>Agregar Ingrediente</h1>
 @endsection
 
 @section('content')
-<form>
-    <div class="form-group col-md-12">
-        <a class="btn btn-success btn-md" style="float:right;"
-            href="{{ url('raw_material/index') }}"><b>Volver</b></a><br><br><br>
-    </div>
-    @include('raw_material.form')
-    <div class="form-group col-md-10">
-        <button type="submit" class="btn btn-success" style="float:right; margin-top:15px;">guardar</button>
+<form action="{{ url('/raw_material') }}" method="POST">
+    {{ csrf_field() }}
+    <div class="form-row">
+        <div class="form-group col-md-12 col-lg-12">
+            <a class="btn btn-success btn-md" style="float:right;"
+                href="{{ url('raw_material') }}"><b>Volver</b></a><br><br><br>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="material_name">Ingrediente</label><br>
+            <input class="form-control" type="text" name="material_name" id="material_name" style="width:100%;" required>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="material_amount">Cantidad</label><br>
+            <input class="form-control" type="number" name="material_amount" id="material_amount" style="width:100%;"
+                required>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="material_price">Precio</label><br>
+            <input class="form-control" type="float" name="material_price" id="material_price" style="width:100%;"
+                required>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="material_expiration">Caducidad</label><br>
+            <input class="form-control" type="date" name="material_expiration" id="material_expiration" style="width:100%;"
+                required>
+        </div>
+        {{-- @include('product.partials.form') --}}
+        <div class="form-group col-md-10 col-lg-12">
+            <button type="submit" class="btn btn-success" style="float:right; margin-top:15px;">Guardar</button>
+        </div>
     </div>
 </form>
 @endsection
