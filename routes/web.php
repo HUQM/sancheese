@@ -22,6 +22,7 @@ Route::resource('raw_material','RawMaterialController');
 
 // Rutas para Producto
 Route::resource('product','ProductController');
+Route::get('showTableP','ProductController@showTableP')->name('products.showTableP');
 
 // Rutas para Almacen
 Route::resource('store','StoreController');

@@ -20,6 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="{{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700')}}" rel="stylesheet">
     <!-- Tablas -->
     <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}">
     @yield('adminlte_css')
 </head>
 
@@ -171,6 +173,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+    <!-- DataTables -->
+    <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.js') }}"></script>
+    <script src="{{ asset('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js') }}"></script>
 </body>
 
 </html>
