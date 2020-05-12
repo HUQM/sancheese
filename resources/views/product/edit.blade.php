@@ -6,11 +6,6 @@
 
 @section('content')
 
-@if (Session::has('message')){{
-    Session::get('message')
-}}
-@endif
-
 <form action="{{ url('/product/'.$producto->id) }}" method="POST">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}

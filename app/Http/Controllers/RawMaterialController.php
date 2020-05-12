@@ -65,9 +65,10 @@ class RawMaterialController extends Controller
      * @param  \App\Raw_material  $raw_material
      * @return \Illuminate\Http\Response
      */
-    public function edit(Raw_material $raw_material)
+    public function edit($id)
     {
-        //
+        $rawMaterial = Raw_material::findOrFail($id);
+        return view('raw_material.edit', compact('rawMaterial'));
     }
 
     /**
@@ -77,9 +78,16 @@ class RawMaterialController extends Controller
      * @param  \App\Raw_material  $raw_material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Raw_material $raw_material)
+    public function update(Request $request, $id)
     {
-        //
+        $material = Raw_material::findOrFail($id);
+        $material->name = $request->material_name;
+        $material->amount = $request->material_amount;
+        $material->price = $request->material_price;
+        $material->expiration = $request->material_expiration;
+        $material->update();
+
+        return redirect('raw_material')->with('success','ingrediente actualizado');
     }
 
     /**
