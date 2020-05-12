@@ -14,7 +14,9 @@ class RawMaterialController extends Controller
      */
     public function index()
     {
-        return view('raw_material.index');
+         $materialData['rawMaterials'] = Raw_material::paginate(100);
+
+         return view('raw_material.index', $materialData);
     }
 
     /**
@@ -35,7 +37,15 @@ class RawMaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  dd($request);
+         $material = new Raw_material;
+         $material->name = $request->material_name;
+         $material->amount = $request->material_amount;
+         $material->price = $request->material_price;
+         $material->expiration = $request->material_expiration;
+         $material->save();
+
+         return redirect('raw_material')->with('success','ingrediente agregado');
     }
 
     /**
@@ -78,8 +88,10 @@ class RawMaterialController extends Controller
      * @param  \App\Raw_material  $raw_material
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Raw_material $raw_material)
+    public function destroy($id)
     {
-        //
+            Raw_material::destroy($id);
+
+            return redirect('raw_material')->with('delete','Ingrediente eliminado');
     }
 }
