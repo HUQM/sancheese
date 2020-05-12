@@ -1,22 +1,17 @@
 @extends('layout')
 
-@section('adminlte_css')
-<meta name="csrf-token"=content="{{ csrf_token() }}">
-@stop
-
 @section('header-section')
 
-    <h2>Lista de materiales</h2>
+<h2>Lista de productos</h2>
 
 @endsection
-
-
 
 @section('content')
 
 <div class="row">
     <div class="col col-md-12">
-    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('raw_material/create') }}"><b>Agregar Nuevo</b></a><br><br><br>
+        <a class="btn btn-success btn-md" style="float: right;" href="{{ url('product/create') }}"><b>Agregar
+                Nuevo</b></a><br><br><br>
     </div>
     <div class="col-md-12">
         <div class="box-body">
@@ -24,24 +19,22 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
+                        <th>Peso</th>
                         <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Caducidad</th>
                         <th width="120px">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($rawMaterials as $rawMaterial)
+                    @foreach ($products as $product)
                     <tr>
-                        <td>{{ $rawMaterial->name }}</td>
-                        <td>{{ $rawMaterial->amount }}</td>
-                        <td>{{ $rawMaterial->price }}</td>
-                        <td>{{ $rawMaterial->expiration }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->weight }}</td>
+                        <td>{{ $product->price }}</td>
                         <td>
                             <div class="row">
                                 <div class="col col-6 text-center">
                                     {{-- <button class="btn btn-warning"> --}}
-                                        <a class="btn btn-warning" href="{{ url('/product/'.$rawMaterial->id.'/edit') }}" style="text-decoration:none;"><svg
+                                        <a class="btn btn-warning" href="{{ url('/product/'.$product->id.'/edit') }}" style="text-decoration:none;"><svg
                                             class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -53,7 +46,7 @@
                                     {{-- </button> --}}
                                 </div>
                                 <div class="col col-6 text-center">
-                                    <form method="post" action="{{ url('/raw_material/'.$rawMaterial->id) }}">
+                                    <form method="post" action="{{ url('/product/'.$product->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger"
@@ -72,6 +65,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $products->links() }}
         </div>
     </div>
 </div>
@@ -79,5 +73,5 @@
 @endsection
 
 @section('adminlte_js')
-
+@include('product.partials.script')
 @stop

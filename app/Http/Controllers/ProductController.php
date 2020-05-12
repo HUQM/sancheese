@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use DB;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $dataProdcuct['products'] = Product::paginate(5);
+
+        return view('product.index', $dataProdcuct);
     }
 
     /**
@@ -24,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,7 +39,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $producto = new Product;
+        $producto->name = $request->product_name;
+        $producto->weight = $request->product_weight;
+        $producto->price = $request->product_price;
+        $producto->save();
+
+        // $msg = [
+        //     'title' => 'Creado!',
+        //     'text' => 'Producto creado exitosamente.',
+        //     'icon' => 'success'
+        // ];
+
+        return redirect('product')->with('success','Producto agregado');
     }
 
     /**
@@ -55,9 +72,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $producto = Product::findOrFail($id);
+
+        return  view('product.edit', compact('producto'));
     }
 
     /**
@@ -67,9 +86,17 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $producto = Product::findOrFail($id);
+        $producto->name = $request->product_name;
+        $producto->weight = $request->product_weight;
+        $producto->price = $request->product_price;
+        $producto->update();
+
+        return redirect('product')->with('success','Producto editado');
+
+        //Listo Mademoiselle
     }
 
     /**
@@ -78,8 +105,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect('products');
     }
 }

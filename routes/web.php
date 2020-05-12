@@ -17,4 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rutas para Materia Prima
 Route::resource('raw_material','RawMaterialController');
+
+// Rutas para Producto
+Route::resource('product','ProductController');
+
+// Rutas para Almacen
+Route::resource('store','StoreController');
+
+
