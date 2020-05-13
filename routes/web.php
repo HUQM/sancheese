@@ -26,4 +26,7 @@ Route::resource('product','ProductController');
 // Rutas para Almacen
 Route::resource('store','StoreController');
 
+// Rutas para ventas
+Route::resource('sales','SalesController');
+
 
