@@ -1,22 +1,16 @@
 @extends('layout')
 
-@section('adminlte_css')
-<meta name="csrf-token"=content="{{ csrf_token() }}">
-@stop
-
 @section('header-section')
 
-    <h2>Lista de materiales</h2>
+    <h2>Ventas</h2>
 
 @endsection
-
-
 
 @section('content')
 
 <div class="row">
     <div class="col col-md-12">
-    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('raw_material/create') }}"><b>Agregar Nuevo</b></a><br><br><br>
+    <a class="btn btn-success btn-md" style="float: right;" href="{{ url('sales/create') }}"><b>Agregar</b></a><br><br><br>
     </div>
     <div class="col-md-12">
         <div class="box-body">
@@ -24,24 +18,23 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Creación</th>
                         <th>Caducidad</th>
                         <th width="120px">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($rawMaterials as $rawMaterial)
+                {{-- <tbody>
+                    @foreach ($storeProducts as $storeProduct)
                     <tr>
-                        <td>{{ $rawMaterial->name }}</td>
-                        <td>{{ $rawMaterial->amount }}</td>
-                        <td>{{ $rawMaterial->price }}</td>
-                        <td>{{ $rawMaterial->expiration }}</td>
+                        <td>{{ $storeProduct->product_id }}</td>
+                        <td>{{ $storeProduct->amount }}</td>
+                        <td>{{ $storeProduct->elaboration }}</td>
+                        <td>{{ $storeProduct->expiration }}</td>
                         <td>
                             <div class="row">
                                 <div class="col col-6 text-center">
-                                    {{-- <button class="btn btn-warning"> --}}
-                                        <a class="btn btn-warning" href="{{ url('/raw_material/'.$rawMaterial->id.'/edit') }}" style="text-decoration:none;"><svg
+                                    <a class="btn btn-warning" href="{{ url('/store/'.$storeProduct->id.'/edit') }}" style="text-decoration:none;"><svg
                                             class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -50,10 +43,9 @@
                                                 d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
                                                 clip-rule="evenodd" />
                                         </svg></a>
-                                    {{-- </button> --}}
                                 </div>
                                 <div class="col col-6 text-center">
-                                    <form method="post" action="{{ url('/raw_material/'.$rawMaterial->id) }}">
+                                <form method="post" action="{{ url('/store/'.$storeProduct->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger"
@@ -70,7 +62,7 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
