@@ -1,7 +1,7 @@
 <script>
-    
-    function deleteMsg(){
-        return confirm("Press OK to close this option");
+
+    if(window.innerWidth < 500){
+        $('.btn').removeClass('btn-md');
     }
 
 </script>

@@ -30,3 +30,7 @@ Route::resource('store','StoreController');
 Route::resource('sales','SalesController');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
