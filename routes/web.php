@@ -29,7 +29,8 @@ Route::resource('store','StoreController');
 // Rutas para ventas
 Route::resource('sales','SalesController');
 
-
+// Rutas para usrios
+Route::resource('user','UserController');
 
 Auth::routes();
 
