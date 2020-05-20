@@ -66,6 +66,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $storeProducts->links() }}
         </div>
     </div>
 </div>
