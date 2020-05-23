@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Store;
+use App\Product;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -14,8 +15,9 @@ class StoreController extends Controller
      */
     public function index()
     {
+        $listProducts = Product::all();
         $dataStore['storeProducts'] = Store::paginate(5);
-        return view('store.index', $dataStore);
+        return view('store.index', $dataStore, compact('listProducts'));
     }
 
     /**
@@ -25,7 +27,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('store.create');  
+        $listProducts = Product::all();
+        return view('store.create', compact('listProducts'));   
 
     }
 

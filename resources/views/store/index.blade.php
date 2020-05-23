@@ -6,7 +6,7 @@
 
 @endsection
 
-@section('content')
+@section('content') 
 
 <div class="row">
     <div class="col col-md-12">

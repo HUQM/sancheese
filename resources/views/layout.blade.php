@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AdminLTE 3 | Starter</title>
+    <title>SanChese</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -82,19 +82,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-<<<<<<< HEAD
-                    {{-- <div class="image">
-                        <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
-=======
                     <div class="image">
-                        <img src="{{asset('dist/img/default-user.png')}}" class="img-circle elevation-2"
->>>>>>> 72d0c4286c011d16ea6dc408cd5183d25b86f32b
+                        <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
                             alt="User Image">
-                    </div>
+                    </div> 
                     <div class="info">
                         <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
-                </div> --}}
+                </div> 
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
