@@ -14,7 +14,7 @@ class RawMaterialController extends Controller
      */
     public function index()
     {
-         $materialData['rawMaterials'] = Raw_material::paginate(100);
+         $materialData['rawMaterials'] = Raw_material::paginate(5);
 
          return view('raw_material.index', $materialData);
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Sales;
+use App\Product;
+use App\Store;
 use Illuminate\Http\Request;
 
 class SalesController extends Controller
@@ -14,7 +16,9 @@ class SalesController extends Controller
      */
     public function index()
     {
-        return view('sales.index');
+        $salesData['sales'] = Sales::paginate(5);
+
+        return view('sales.index', $salesData);
     }
 
     /**
@@ -24,7 +28,8 @@ class SalesController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
+        $listStores = Store::all();
+        return view('sales.create', compact('listStores'));
     }
 
     /**
@@ -35,7 +40,14 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $sale = new Sales;
+         $sale->date = $request->sale_date;
+         $sale->store_id = $request->product_sale;
+         $sale->amount = $request->sale_amount;
+         $sale->total = $request->sale_total;
+         $sale->save();
+
+         return redirect('sales')->with('success','venta agregada');
     }
 
     /**
@@ -69,7 +81,7 @@ class SalesController extends Controller
      */
     public function update(Request $request, Sales $sales)
     {
-        //
+
     }
 
     /**
@@ -78,8 +90,10 @@ class SalesController extends Controller
      * @param  \App\Sales  $sales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sales $sales)
+    public function destroy($id)
     {
-        //
+        Sales::destroy($id);
+
+        return redirect('sales')->with('delete','venta eliminada');
     }
 }

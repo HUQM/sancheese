@@ -19,22 +19,22 @@
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
-                        <th>Creación</th>
-                        <th>Caducidad</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
                         <th width="120px">Acciones</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($storeProducts as $storeProduct)
+                <tbody>
+                    @foreach ($sales as $sale)
                     <tr>
-                        <td>{{ $storeProduct->product_id }}</td>
-                        <td>{{ $storeProduct->amount }}</td>
-                        <td>{{ $storeProduct->elaboration }}</td>
-                        <td>{{ $storeProduct->expiration }}</td>
+                        <td>{{ $sale->store_id }}</td>
+                        <td>{{ $sale->amount }}</td>
+                        <td>{{ $sale->date }}</td>
+                        <td>{{ $sale->total }}</td>
                         <td>
                             <div class="row">
-                                <div class="col col-6 text-center">
-                                    <a class="btn btn-warning" href="{{ url('/store/'.$storeProduct->id.'/edit') }}" style="text-decoration:none;"><svg
+                                {{-- <div class="col col-6 text-center">
+                                    <a class="btn btn-warning" href="{{ url('/sales/'.$sale->id.'/edit') }}" style="text-decoration:none;"><svg
                                             class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -43,9 +43,9 @@
                                                 d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
                                                 clip-rule="evenodd" />
                                         </svg></a>
-                                </div>
+                                </div> --}}
                                 <div class="col col-6 text-center">
-                                <form method="post" action="{{ url('/store/'.$storeProduct->id) }}">
+                                <form method="post" action="{{ url('/sales/'.$sale->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger"
@@ -62,7 +62,7 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>
