@@ -24,8 +24,8 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Precio</th>
                         <th>Caducidad</th>
                         <th width="120px">Acciones</th>
                     </tr>
