@@ -8,13 +8,15 @@
 
 @section('content') 
 
+{{-- <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"> --}}
+
 <div class="row">
     <div class="col col-md-12">
     <a class="btn btn-success btn-md" style="float: right;" href="{{ url('store/create') }}"><b>Agregar</b></a><br><br><br>
     </div>
     <div class="col-md-12">
         <div class="box-body">
-            <table id="" class="table table-striped table-bordered" style="width:100%">
+            <table id="storetable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>Producto</th>
@@ -70,6 +72,14 @@
         </div>
     </div>
 </div>
+
+{{-- <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> --}}
+
+{{-- <script>
+$(document).ready( function () {
+    $('#storetable').DataTable();
+} );
+</script> --}}
 
 @endsection
 
