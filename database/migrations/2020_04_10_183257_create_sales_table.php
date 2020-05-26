@@ -16,11 +16,14 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
+            // $table->bigInteger('product_id')->unsigned();
+            // $table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('store_id')->unsigned();
+            $table->foreign('store_id')->references('id')->on('stores');
             $table->bigInteger('amount');
             $table->float('total');
             $table->timestamps();
+
         });
     }
 
