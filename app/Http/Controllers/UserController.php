@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -36,7 +37,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validatedData = $request->validate([
+        //     'email' => 'unique:users',
+        //     'name' => 'required',
+        // ]);
+
+        $user = new User;
+        $user->name = $request->user_name;
+        $user->password = $request->user_password;
+        $user->password = Hash::make($request->user_password);
+        $user->email = $request->user_email;
+        $user->save();
+
+        return redirect('user')->with('success','Usuario registrado');
     }
 
     /**
@@ -58,7 +71,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -70,7 +84,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    //    dd($request);
+        $user = User::findOrFail($id);
+        $user->name = $request->user_name;
+        if($request->user_password != null )
+          $user->password = Hash::make($request->user_password);
+        $user->email = $request->user_email;
+        $user->save();
+
+        return redirect('user')->with('success','Cambios guardados'); 
     }
 
     /**
@@ -81,6 +103,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('user')->with('delete','Usurio eliminado');
     }
 }

@@ -7,9 +7,7 @@
 @section('content')
 <form action="{{ url('/store/'.$storeProduct->id) }}" method="POST">
     {{ csrf_field() }}
-
     {{method_field('PATCH')}}
-
     <div class="form-row">
         <div class="form-group col-md-12 col-lg-12">
             <a class="btn btn-success btn-md" style="float:right;"
