@@ -15,7 +15,15 @@
         </div>
         <div class="form-group col-md-6 col-lg-6">
             <label for="product_store">Producto</label><br>
-        <input class="form-control" type="number" name="product_store" id="product_store" style="width:100%;" value="{{ $storeProduct->product_id }}" required>
+            <div class="form-group">
+                 <select class="form-control" type="number" name="product_store" id="product_store" style="width:100%;" required>
+                     <option value="" selected>Seleccione un Producto</option>
+                     @foreach ($listProducts as $listProduct)
+                         <option value="{{ $listProduct->id }}">{{ $listProduct->name }}</option>
+                     @endforeach
+                 </select>
+             </div>
+        {{-- <input class="form-control" type="number" name="product_store" id="product_store" style="width:100%;" value="{{ $storeProduct->product_id }}" required> --}}
         </div>
         <div class="form-group col-md-6 col-lg-6">
             <label for="store_amount">Cantidad</label><br>
