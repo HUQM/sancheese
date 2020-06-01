@@ -70,9 +70,9 @@ class StoreController extends Controller
     public function edit($id)
     {
         //return view(view: 'store.edit', ['storeProduct' => Store::findOrFail($id)])
-        
+        $listProducts = Product::all();
         $storeProduct=Store::findOrFail($id);
-        return view('store.edit', compact('storeProduct'));
+        return view('store.edit', compact('storeProduct', 'listProducts'));
         
     }
 
