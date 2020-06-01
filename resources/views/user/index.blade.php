@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col col-md-12">
-        <a class="btn btn-success btn-md" style="float: right;" href="{{ url('product/create') }}"><b>Agregar
+        <a class="btn btn-success btn-md" style="float: right;" href="{{ url('user/create') }}"><b>Agregar
                 Nuevo</b></a><br><br><br>
     </div>
     <div class="col-md-12">
@@ -31,7 +31,7 @@
                         <td>
                             <div class="row">
                                 <div class="col col-6 text-center">
-                                    <a class="btn btn-warning btn-sm" href=""
+                                <a class="btn btn-warning btn-sm" href="{{ url('/user/'.$user->id.'/edit') }}"
                                         style="text-decoration:none;"><svg class="bi bi-pencil-square" width="1em"
                                             height="1m" viewBox="0 0 16 16" fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
                                         </svg></a>
                                 </div>
                                 <div class="col col-6 text-center">
-                                    <form method="post" action="">
+                                    <form method="post" action="{{ url('/user/'.$user->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger btn-sm"
