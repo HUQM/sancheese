@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Ruta para buscador en store
+Route::get('search', 'StoreController@search');
 
 // Rutas para Materia Prima
 Route::resource('raw_material','RawMaterialController');

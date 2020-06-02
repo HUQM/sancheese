@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Store;
 use App\Product;
 use Illuminate\Http\Request;
+use DB;
 
 class StoreController extends Controller
 {
@@ -15,8 +16,21 @@ class StoreController extends Controller
      */
     public function index()
     {
+        
+
+        // if ($request) {
+        //     $query=trim($request->get('search'));
+
+        //     $storeProducts=Store::where('Product_id','LIKE','%'.$query.'%')
+        //     ->orderBy('product_id', 'asc')
+        //     ->get();
+
+        //   return view('store.index',['storeProducts'=>$storeProducts,'search'=>$query]);
+        // }
+        
         $listProducts = Product::all();
         $dataStore['storeProducts'] = Store::paginate(5);
+
         return view('store.index', $dataStore, compact('listProducts'));
     }
 
@@ -32,6 +46,13 @@ class StoreController extends Controller
 
     }
 
+    //Aqui
+    public function search(Request $request){
+
+        $search = $request->get('search');
+        $stores = DB::table('$stores')->where('product_id', 'like', '%'.$search.'%')->paginate(5);
+        return view('store.index'['$stores' -> $stores]);
+    }
     /**
      * Store a newly created resource in storage.
      *

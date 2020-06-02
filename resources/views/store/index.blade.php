@@ -4,10 +4,28 @@
 
     <h2>Almacén</h2>
 
+    {{-- <h6>
+        @if ($search)
+        <div class="alert alert-primary" role="alert">
+            Resultados de '{{ $search }}' :
+        </div>
+        @endif
+    </h6> --}}
+
 @endsection
 
 @section('content') 
 
+{{-- Aqui --}}
+<form action="search" method="get" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Buscar producto" aria-label="Search">
+    <div class="input-group-append">
+            <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit">
+                 <i class="fas fa-search" ></i>
+            </button>
+    </div>
+      
+</form>
 {{-- <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"> --}}
 
 <div class="row">
