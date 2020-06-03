@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class UsersSeeder extends Seeder
 {
     /**
@@ -16,5 +17,21 @@ class UsersSeeder extends Seeder
         $user->email = 'elkevin@mail.com';
         $user->password = '$2y$10$J/9JENEXTyxUXp0DJO8TcuEzuWJONlDBzLRkzGiP8Gen.E/.G8jm.'; //numeros del 1-8
         $user->save();
+
+        $role = new App\Role_user();
+        $role->user_id = $user->id;
+        $role->role_id = '1';
+        $role->save();
+
+        $user = new App\User();
+        $user->name = 'usuario';
+        $user->email = 'usuario@mail.com';
+        $user->password = '$2y$10$J/9JENEXTyxUXp0DJO8TcuEzuWJONlDBzLRkzGiP8Gen.E/.G8jm.';
+        $user->save();
+
+        $role = new App\Role_user();
+        $role->user_id = $user->id;
+        $role->role_id = '2';
+        $role->save();
     }
 }
