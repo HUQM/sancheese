@@ -14,22 +14,12 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $product_search = $request->get('search');  
 
-        // if ($request) {
-        //     $query=trim($request->get('search'));
-
-        //     $storeProducts=Store::where('Product_id','LIKE','%'.$query.'%')
-        //     ->orderBy('product_id', 'asc')
-        //     ->get();
-
-        //   return view('store.index',['storeProducts'=>$storeProducts,'search'=>$query]);
-        // }
-        
         $listProducts = Product::all();
-        $dataStore['storeProducts'] = Store::paginate(5);
+        $dataStore['storeProducts'] = Store::where('product_id','like',"%$product_search%")->paginate(5);
 
         return view('store.index', $dataStore, compact('listProducts'));
     }
@@ -44,14 +34,6 @@ class StoreController extends Controller
         $listProducts = Product::all();
         return view('store.create', compact('listProducts'));   
 
-    }
-
-    //Aqui
-    public function search(Request $request){
-
-        $search = $request->get('search');
-        $stores = DB::table('$stores')->where('product_id', 'like', '%'.$search.'%')->paginate(5);
-        return view('store.index'['$stores' -> $stores]);
     }
     /**
      * Store a newly created resource in storage.

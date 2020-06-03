@@ -17,7 +17,7 @@
 @section('content') 
 
 {{-- Aqui --}}
-<form action="search" method="get" class="form-inline my-2 my-lg-0">
+<form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" name="search" type="search" placeholder="Buscar producto" aria-label="Search">
     <div class="input-group-append">
             <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit">
