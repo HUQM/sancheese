@@ -2,7 +2,7 @@
 
 @section('header-section')
 
-<h2>Lista de productos</h2>
+<h2>Lista de usuarios</h2>
 
 @endsection
 
