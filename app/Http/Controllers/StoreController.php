@@ -90,6 +90,7 @@ class StoreController extends Controller
     {
         $storeProduct=Store::findOrFail($id);
         $storeProduct->product_id = $request->product_store;
+        $storeProduct->name = $request->product_name;
         $storeProduct->amount = $request->store_amount;
         $storeProduct->elaboration = $request->store_create;
         $storeProduct->expiration = $request->store_expiration;

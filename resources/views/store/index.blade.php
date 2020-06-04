@@ -38,6 +38,7 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
+                        <th>Nombre del Producto</th>
                         <th>Cantidad</th>
                         <th>Creación</th>
                         <th>Caducidad</th>
@@ -48,6 +49,7 @@
                     @foreach ($storeProducts as $storeProduct)
                     <tr>
                         <td>{{ $storeProduct->product_id }}</td>
+                        <td>{{ $storeProduct->product_name }}</td>
                         <td>{{ $storeProduct->amount }}</td>
                         <td>{{ $storeProduct->elaboration }}</td>
                         <td>{{ $storeProduct->expiration }}</td>
