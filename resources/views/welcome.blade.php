@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #f2fbff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -81,8 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SanCheese<br>
-                    <img src="{{ asset("img/sancheese-logo.png") }}" alt="">
+                    {{-- SanCheese<br> --}}
+                    <img src="{{ asset("img/fondo-1.png") }}" alt="">
                 </div>
             </div>
         </div>
