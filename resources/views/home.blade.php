@@ -9,7 +9,7 @@
 @section('content')
     
     <div class="row">
-        <div class="col col-12 text-center" style="padding-top: 10em;">
+        <div class="col col-12 text-center" style="padding-top: 5em;">
             <img src="img/sancheese-logo.png" alt="">
         </div>
     </div>
