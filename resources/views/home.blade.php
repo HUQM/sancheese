@@ -8,9 +8,10 @@
 
 @section('content')
     
+    
     <div class="row">
-        <div class="col col-12 text-center" style="padding-top: 5em;">
-            <img src="img/sancheese-logo.png" alt="">
+        <div class="col col-12 text-center align-items-center" style="padding-top: 0em ;">
+            <img src="img/sancheese-home.png" class="img-fluid" alt="Responsive image">
         </div>
     </div>
 
