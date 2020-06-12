@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role_user;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $dataUser['users'] = User::paginate(10);
         return view('user.index', $dataUser);
@@ -49,6 +50,11 @@ class UserController extends Controller
         $user->email = $request->user_email;
         $user->save();
 
+        $role = new Role_user();
+        $role->user_id = $user->id;
+        $role->role_id = '2';
+        $role->save();
+
         return redirect('user')->with('success','Usuario registrado');
     }
 
@@ -60,7 +66,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -92,7 +98,7 @@ class UserController extends Controller
         $user->email = $request->user_email;
         $user->save();
 
-        return redirect('user')->with('success','Cambios guardados'); 
+        return redirect('user')->with('success','Cambios guardados');
     }
 
     /**

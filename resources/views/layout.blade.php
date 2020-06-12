@@ -4,7 +4,6 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,11 +84,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="image">
                         <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
                             alt="User Image">
-                    </div> 
+                    </div>
                     <div class="info">
                         <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
-                </div> 
+                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -97,7 +96,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
+                            @if (Auth::user()->id == 1)
+                                <li class="nav-item">
                             <a href="{{ url('user') }}" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
@@ -105,6 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
+                            @endif
                         <li class="nav-item">
                             <a href="{{ url('product') }}" class="nav-link">
                                 <i class="nav-icon fas fa-barcode"></i>
