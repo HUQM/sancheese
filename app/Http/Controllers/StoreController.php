@@ -16,6 +16,11 @@ class StoreController extends Controller
      */
     public function index(Request $request)
     {
+        // $storeProducts=DB::table('stores')
+        // ->join('products', 'products.id', '=', 'stores.product_id' )
+        // ->select('stores.product_id', 'products.name as nameProduct' )
+        // ->get();
+        // dd($storeProducts);
         $product_search = $request->get('search');  
 
         $listProducts = Product::all();
@@ -90,7 +95,7 @@ class StoreController extends Controller
     {
         $storeProduct=Store::findOrFail($id);
         $storeProduct->product_id = $request->product_store;
-        $storeProduct->name = $request->product_name;
+        $storeProduct->name_product = $request->product_name;
         $storeProduct->amount = $request->store_amount;
         $storeProduct->elaboration = $request->store_create;
         $storeProduct->expiration = $request->store_expiration;
