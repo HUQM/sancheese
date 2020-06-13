@@ -16,7 +16,7 @@ class CreateStoresTable extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')->references('name')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             // $table->string('name_product')->unsigned();
             // $table->foreing('name')->references('name')->on('products');
             $table->bigInteger('amount');
