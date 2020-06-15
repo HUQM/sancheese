@@ -9,7 +9,7 @@
 @section('content') 
 
 {{-- Aqui --}}
-<form class="form-inline my-2 my-lg-0">
+{{-- <form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" name="search" type="search" placeholder="Buscar producto" aria-label="Search">
     <div class="input-group-append">
             <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit">
@@ -17,7 +17,7 @@
             </button>
     </div>
       
-</form>
+</form> --}}
 {{-- <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"> --}}
 
 <div class="row">
